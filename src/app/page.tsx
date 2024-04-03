@@ -1,113 +1,106 @@
+import type { CardProps } from "@/types";
 import Image from "next/image";
+import Card from "./components/card/Card";
 
 export default function Home() {
+  const profileLink = () => <a href='https://www.ryanfloyd.com' className='font-light display-inline text-sky-500 underline hover:no-underline' target='_blank'>www.ryanfloyd.com</a>
+  const camperEdgeLink = () => <a href='https://www.camperedge.com' className='font-light inline text-sky-500 underline hover:no-underline' target='_blank'>CamperEdge</a>
+  const resumeLink = () => <a href='https://uploads.strikinglycdn.com/files/c7e61ee2-3a5c-497f-95f7-5c58882e3add/Ryan%20Floyd.pdf' className='font-light inline text-sky-500 underline hover:no-underline' target='_blank'>here</a>
+  const cardData: Array<CardProps> = [
+    {
+      contentData: [
+        "In general, I'm excited about the direction web development is heading, better frameworks, better tooling, and of course that thing everyone is talking about --- AI.",
+        "I'm really interested to see if Generative AI can turn every developer into an 10x developer. I think that Tailwind Labs could be at the forefront of this movement, by providing the picks/shovels in this gold rush."
+      ],
+      title: "What you're excited about",
+    },
+    {
+      contentData: [
+        "I've built a lot of web services, but I haven't built the tooling for these web services, and I know that's a different game.",
+        <p className="m-0 p-30 font-medium text-sm md:text-md" key="excited-1">
+          I&apos;ve been kicking around a side project, called {camperEdgeLink()} (again closed source...) for a while, 
+          and while it needs a lot of polish/finish, the frontend is built on tailwindcss and nextjs. 
+          The backend is Python with lots of NLP to parse the campground data and restructure in a relational DB (Postgres)
+          All the campground pages are SSG for almost instant PLT.
+        </p>,
+      ],
+      title: "Interesting projects you've worked on"
+    },
+    {
+      contentData: [
+        "The culture and values at Tailwind Labs resonate deeply with me. The thought of collaborating with a small, talented team to produce work that is both impactful and widely respected is what draws me most to this role.",
+        "I'm inspired by the list of recent technical problems the team has solved. Particularly the fast CSS grouping using AST. I've written an AST before and they are not easy. ",
+        "I'm also really intrigued by the upcoming projects and integration with Vite. Vite is a very cool project and has been gaining a lot of ground lately.",
+        "I'm eager to bring my skills and enthusiasm to Tailwind Labs, contributing to a product I believe in and a community I am proud to be part of."
+      ],
+      title: "Why Tailwind Labs excites me"
+    },
+    {
+      contentData: [
+        "Honestly, I've been working for private/public companies my entire career and 99.9% of my work has been proprietary.",
+      ],
+      title: "Open-source contributions",
+    },
+    {
+      contentData: [
+        "You're likely going to get thousands of applications for this role, so why should you pick me for one of the 10 to proceed to the next steps? ",
+        "I'm a relentless problem solver and don't stop until the code is perfect and the issue is resolved. I don't have a personal/technical blog, I haven't worked on open source projects (in fact, all of my work has been in closed environments) and don't give talks at the latest tech conference, but you'll find me to be a highly energetic and humble engineer who's always eager to learn something new.",
+        <p className="m-0 p-30 font-medium text-sm md:text-md" key="bonus-1">I do have a crappy personal website I built a decade ago, {profileLink()}, and my resume can be downloaded {resumeLink()}.</p>
+      ],
+      title: "Bonus - Why me?"
+    }
+  ];
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
+      {/* Header */}
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+        <div role="heading" aria-level={1} className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit">
+          Tailwind Labs CL&nbsp;
         </div>
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
+      {/* Portrait and personal blurb */}
+      <figure className="md:flex bg-slate-100 lg:rounded-xl md:border-none p-8 md:p-0 dark:bg-slate-800">
         <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
+          src="/electric/portrait.jpeg"
+          alt="Ryan Floyd"
+          className="lg:w-48 md:h-auto mx-auto"
+          width={906 / 6}
+          height={1510 / 6}
           priority
         />
+        
+        <div className="pt-6 md:p-4 lg:p-8 text-center md:text-left space-y-4">
+          <blockquote>
+            <p className="lg:text-lg font-medium text-md">
+              &quot;In my journey through the tech world, I&apos;ve always been drawn to the magic 
+              of small teams making big waves. I&apos;ve been building web services using 
+              every imaginable language / framework possible. I&apos;m ready to dig into creating
+              a long lasting and purposeful software that empowers millions of people.&quot;
+            </p>
+          </blockquote>
+          <figcaption className="font-medium">
+            <div className="text-sky-500 dark:text-sky-400">
+              Ryan Floyd
+            </div>
+            <div className="text-slate-700 dark:text-slate-500">
+              Staff Engineer, Looking for a job
+            </div>
+          </figcaption>
+        </div>
+      </figure>
+      
+      {/* Divider in small screen widths */}
+      <div className="w-full border-b-2 border-spacing-2 border-blue-300 divider-blue-300 lg:border-none" />
+
+      {/* Card region */}
+      <div className="flex flex-col text-center lg:mt-4 lg:w-full lg:border-none md:text-left lg:divide-none divide-y-2 divide-blue-300 lg:space-y-4">
+        {cardData.map((card, index) => (
+          <Card key={`card-${index}`} {...card} />
+        ))}
       </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      {/* End Card region */}
     </main>
   );
 }
