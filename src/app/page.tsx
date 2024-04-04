@@ -45,7 +45,7 @@ export default function Home() {
       contentData: [
         "You're likely going to get thousands of applications for this role, so why should you pick me for one of the 10 to proceed to the next steps? ",
         "I'm a relentless problem solver and don't stop until the code is perfect and the issue is resolved. I don't have a personal/technical blog, I haven't worked on open source projects (in fact, all of my work has been in closed environments) and don't give talks at the latest tech conference, but you'll find me to be a highly energetic and humble engineer who's always eager to learn something new.",
-        <p className="m-0 p-30 font-medium text-sm md:text-md" key="bonus-1">I do have a crappy personal website I built a decade ago, {profileLink()}, and my resume can be downloaded {resumeLink()}.</p>
+        <p className="m-0 p-30 font-medium text-sm md:text-md" key="bonus-1">I do have a crappy personal website I put together a decade ago, {profileLink()}, and my resume can be downloaded {resumeLink()}.</p>
       ],
       title: "Bonus - Why me?"
     }
@@ -61,7 +61,7 @@ export default function Home() {
       </div>
 
       {/* Portrait and personal blurb */}
-      <figure className="md:flex bg-slate-100 lg:rounded-xl md:border-none p-8 md:p-0 dark:bg-slate-800">
+      <figure className="pt-20 pb-8 md:p-0 px-8 md:flex bg-slate-100 lg:rounded-xl md:border-none dark:bg-slate-800">
         <Image
           src="/electric/portrait.jpeg"
           alt="Ryan Floyd"
